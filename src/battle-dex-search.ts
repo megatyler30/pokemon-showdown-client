@@ -885,13 +885,14 @@ class BattlePokemonSearch extends BattleTypedSearch<'pokemon'> {
 		else if (format === 'nu') tierSet = tierSet.slice(slices.NU || slices.UU);
 		else if (format === 'pu') tierSet = tierSet.slice(slices.PU || slices.NU);
 		else if (format === 'zu') tierSet = tierSet.slice(slices.ZU || slices.PU || slices.NU);
-		else if (format === 'lc' || format === 'lcuu') tierSet = tierSet.slice(slices.LC);
+		else if (format === 'lc' || format === 'lcuu' || format == 'lcru') tierSet = tierSet.slice(slices.LC);
 		else if (format === 'cap') tierSet = tierSet.slice(0, slices.Uber).concat(tierSet.slice(slices.OU));
 		else if (format === 'caplc') tierSet = tierSet.slice(slices['CAP LC'], slices.Uber).concat(tierSet.slice(slices.LC));
 		else if (format.startsWith('lc') || format.endsWith('lc')) tierSet = tierSet.slice(slices["LC Uber"]);
 		else if (format === 'anythinggoes' || format.endsWith('ag')) tierSet = tierSet.slice(dex.gen === 8 ? slices.Uber : slices.AG || slices.Uber);
 		else if (format === 'balancedhackmons' || format.endsWith('bh')) tierSet = tierSet.slice(dex.gen === 8 ? slices.Uber : slices.AG || slices.Uber);
 		else if (format === 'doublesubers') tierSet = tierSet.slice(slices.DUber);
+      else if (format === 'doubleslc') tierSet = tierSet.slice(slices.LC);
 		else if (format === 'doublesou' && dex.gen > 4) tierSet = tierSet.slice(slices.DOU);
 		else if (format === 'doublesuu') tierSet = tierSet.slice(slices.DUU);
 		else if (format === 'doublesnu') tierSet = tierSet.slice(slices.DNU || slices.DUU);
